@@ -1,3 +1,11 @@
+:root {
+    --primary-color: tomato;
+    --secondary-color: turquoise;
+    --dark-color: black;
+    --light-color: white;
+    --padding-space: 1rem;
+}
+
 /* .is Class selector 
 specificity: 0010
 */
@@ -26,9 +34,9 @@ main>p {
 
 /* + is Adjacent selector */
 h2+p {
-    background-color: black;
-    color: white;
-    padding: 1rem;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: var(--padding-space);
 }
 
 /* ~ is Sibling selector */
@@ -44,13 +52,13 @@ h2+p {
 
 /* [] is attribute selector  */
 a[href="#"] {
-    color: tomato;
+    color: var(--primary-color);
 }
 
 /* ^is for checking if the value starts with */
 
 a[href^="http"] {
-    border-left: 4px solid tomato ;
+    border-left: 4px solid var(--primary-color) ;
 }
 
 /* LoVe HAte */
@@ -93,16 +101,39 @@ h1::after {
 a[href$=".pdf"]::after {
     content: "\2193";
     font-size: 1.25rem;
-    color: tomato;
+    color: var(--primary-color);
 }
 
 h2+p::first-line {
-    color: turquoise;
+    color: var(--secondary-color);
 }
 
 h3+p::first-letter {
-    background-color: turquoise;
-    color: tomato;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     padding: .25rem;
     margin-right: .10rem;
+}
+
+/* 
+Additional example
+h2 {
+    position: relative;
+}
+
+h2::before {
+    content: "Hello World";
+    position: absolute;
+    width: 100%;
+    background-color: white;
+} */
+
+/* calc() function */
+.google {
+    box-sizing: border-box;
+    display: block;
+    background: var(--secondary-color);
+    width: calc(100% - 2rem);
+    padding: 2rem;
+    margin: 1rem;
 }
